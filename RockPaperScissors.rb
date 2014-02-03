@@ -8,9 +8,10 @@ class RPS
 		# make sure there are only 2 players, if not raise an error
 		raise WrongNumberOfPlayersError unless game.length == 2
 
-		# make sure there are valid strategies
 		a = game[0][1]
 		b = game[1][1]
+
+		# make sure that there are actually rock paper and scissors
 		raise NoSuchStrategyError unless a and b == "R" or "P" or "S"
 
 		# Give all the possibilities for p2 to beat p1 and set that to 1 use to index to winner
@@ -19,11 +20,11 @@ class RPS
 		# The rest of the possibilities will be draws/p1 beats p2 set to 0 use to index to winner
 		rules.default = 0
 
-		# Access the first element in game and get their choice
-		# Access the second element in game and get their choice
+		# Get first players choice
+		# Get second players choice
 		# Call rules on those two upcased element and print
-			# If p2 beats p1 then it will call game[1] which will be the winner (p2)
-			# If p1 beats p2 then it will call game[0] which will be the p1
+			# If p2 beats p1 -> game[1] which will be the winner (p2)
+			# If p1 beats p2 -> game[0] which will be the winner (p1)
 		return game[rules[[game[0][1].upcase,game[1][1].upcase]]]
 	end
 
