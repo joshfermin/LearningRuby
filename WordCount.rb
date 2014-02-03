@@ -3,7 +3,7 @@ class Word
 	def count_words(string)
 		# Create a new hash
 		# Split the words into an array separated by nonwords
-		# Pipe each word to the hash 
+		# Pipe each word to the hash and increment count
 		@count = Hash.new(0) 
 		words = string.downcase.split(/\W+/)
 		words.each {|word| @count[word] += 1}

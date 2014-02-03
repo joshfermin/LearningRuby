@@ -19,10 +19,9 @@ class Numeric
 	def in(currency)
 		raise 'Parameter is not a symbol' unless currency.kind_of? Symbol
 		singular_currency = currency.to_s.gsub(/s$/,'')
-		self / @@currencies[singular_currency]
+		self * @@currencies[singular_currency]
 	end
-
 end
 
-puts 5.dollars.in(:euros)
+puts 5.dollar.in(:euros)
 puts 10.euros.in(:rupees)

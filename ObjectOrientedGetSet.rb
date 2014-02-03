@@ -11,7 +11,7 @@ class Class
     	# To store the history, use an array.
     	# put things into the array sequentially
 
-    	# class eval is 
+    	# eval only takes a string to evaluate
     	class_eval %Q(
 		    		def #{attr_name}=(attr_name)
 		    			@#{attr_name} = attr_name
@@ -41,3 +41,25 @@ f.bar = :wowzo
 f.bar = 'boo!'
 puts f.bar_history # => [nil, 3, :wowzo, 'boo!']
 
+# class_eval has a number of advantages over simply reopening the class. 
+# Firstly, you can easily call it on a variable, and it's 
+# clear what your intent is. Another advantage is that it will fail if 
+# the class doesn't exist. So the example below will fail as Array is 
+# spelt incorrectly. If the class was simply reopened, it would succeed 
+# (and a new incorrect Aray class would be defined):
+
+# class String
+#   def lowercase
+#     self.downcase
+#   end
+# end
+
+# String.class_eval do
+#   def lowercase
+#     self.downcase
+#   end
+# end
+
+# In each case, the String class has been reopened and a
+# new method defined. That method is available across all instances 
+# of the class

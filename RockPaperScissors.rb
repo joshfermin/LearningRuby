@@ -57,9 +57,8 @@ tournament1 = [
 
 
 match = RPS.new
-#p match.rps_game_winner([ ["Armando", "P"], ["Dave", "S"] ])
+p match.rps_game_winner([ ["Armando", "P"], ["Dave", "S"] ])
 p match.rps_tournament_winner(tournament1)
-p match.rps_tournament_winner(tournament1[0])
 
 
 
