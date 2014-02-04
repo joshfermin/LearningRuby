@@ -28,7 +28,8 @@ class RPS
 		return game[rules[[game[0][1].upcase,game[1][1].upcase]]]
 	end
 
-	# Part4b: Tournament Winner
+	# Part4b: Tournament Winner 
+		# From: https://gitcafe.com/oppih/SaaS_hw/blob/master/hw1/p2_rock_paper_scissors.rb
 	def rps_tournament_winner(tournament)
 		if tournament[0][0].is_a?(Array)
 			tournament = rps_tournament_winner(
